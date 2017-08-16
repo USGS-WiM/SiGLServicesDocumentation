@@ -1,0 +1,180 @@
+.wim-nav {    
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    width: 100%;
+    font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #10152c;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    z-index: 1000;
+}
+.wim-nav .usgsbanner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+   /* justify-content: space-between;*/
+    height: 100%;
+    max-width: none;
+    width: 100%;
+    padding: 0 35px;
+}
+.wim-nav .usgsbanner .nav-branding {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0;
+}
+.wim-nav .usgsbanner .nav-branding img {
+    display: block;
+    height: 38px;
+    width: auto;
+    margin: 0 auto;
+}
+.wim-nav .usgsbanner .nav-title {    
+    font-size: 23px;
+    color: #fff;
+    font-weight: lighter;
+    height: 70px;
+    font-family: 'Lato',Helvetica,sans-serif;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 70px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 260px;
+}
+.nav-title {
+    width: auto !important;
+}
+.wim-sidebar {
+    background-color: #eceef4;
+    width: 320px;
+    pointer-events: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate3d(0px, 0px, 0px);
+    z-index: 100;
+    margin-top: 70px;
+    height: 100%;
+    height: calc(100% - 70px);
+    overflow: auto;
+    box-sizing: border-box;    
+}
+.wim-sidebar-item{
+    display: block;
+    box-sizing: border-box;
+    padding: 0 0 15px 0;
+}
+
+.wim-sidebar select{
+    background-color: white;
+}
+.wim-sidebar button{
+    width: 100%;
+}
+.wim-sidebar label{
+    display: block;
+}
+.list-group-body {
+    position: relative;
+    background-color: #fff;
+    -webkit-box-shadow: inset 0 0 10px 0 rgba(50,50,50,.25);
+    -moz-box-shadow: inset 0 0 10px 0 rgba(50,50,50,.25);
+    box-shadow: inset 0 0 10px 0 rgba(50,50,50,.25);
+    color: #222D39;
+    top: 0!important;
+    box-sizing: border-box;
+    padding: 25px 15px 35px;
+    border-radius: 0;
+}
+.list-group-body p{
+    letter-spacing: 2px;
+}
+.list-group-body a {
+    display: block;
+    color: RGBA(34,45,57,.6);
+    font-size: 12pt;
+    letter-spacing: 2px;
+    padding: 0 0 0 15px;
+    font-weight: 400;
+    width: auto;
+    clear: both;
+    float: left;
+    height: 25px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.card-header a {
+    text-align: right!important;
+    text-transform: uppercase!important;
+    font-size: 12pt!important;
+    box-sizing: border-box!important;
+    padding: 18px!important;
+    letter-spacing: 2px!important;
+    font-weight: 400!important;
+    color: #6E7490!important;
+    transition: .2s!important;
+
+}
+select:focus{
+	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#0F8AFF" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>');
+}
+.scrollable {
+    max-height: calc(100% - 70px);
+}
+.wim-sidebar-content {
+    margin-top: 70px;
+}
+.scrollable {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.active-link {
+    color: black!important;
+    font-weight: 500!important;
+}
+.identification {    
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 9pt;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 0 8px;
+    opacity: .75;
+    text-align: center;
+    color: #6E7490;
+}
+

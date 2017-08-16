@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+body, html {
+    font-family: 'Lato',Helvetica,sans-serif;
+}
+  
+sidebar{
+  overflow: visible !important;
+}
+.card-block{
+    padding: 0!important;
+}
+h4 {
+    font-weight: 700;
+    letter-spacing: 2px;
+  }

@@ -1,0 +1,89 @@
+ .page-header {
+    padding: 25px!important;
+    margin-top: 10px;
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+.well {
+    background-color: rgba(0,0,0,.015);
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid #ECEEF4;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: 11pt;
+    line-height: 1.6em;
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+}
+.page-header+.well {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+.scrollable {    
+    padding: 0 0 35px;
+
+}
+.ngIf+div:nth-child(3) {
+    background-color: #3a7bd5;
+    box-sizing: border-box;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    margin-bottom: 35px;
+    color: #fff;
+    border: none;
+}
+.ngIf+div:nth-child(3) h4 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 500;
+    font-size: 12pt;
+    margin-bottom: 3px;
+}
+h4:nth-child(1) {
+    padding-top: 0;
+}
+.ngIf+div:nth-child(3) .well {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    font-weight: lighter;
+    margin-bottom: 0;
+    font-size: 10pt;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+.mapView {
+    height:500px;
+    width:inherit;
+}
+#resourceDescription{
+    background-color: #3a7bd5;
+    box-sizing: border-box;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    margin-bottom: 35px;
+    color: #fff;
+    border: none;
+}
+#resourceDescription h4 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 500;
+    font-size: 12pt;
+    margin-bottom: 3px;
+}
+#resourceDescription .well {    
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    font-weight: lighter;
+    margin-bottom: 0;
+    font-size: 10pt;
+}

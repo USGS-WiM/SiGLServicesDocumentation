@@ -1,0 +1,139 @@
+<div *ngIf="thisRoute == 'home'">
+    <div class="home-view">
+        <div class="scrollable">
+            <div class="scrollable-content">
+                <div class="page-header">
+                    <h2>{{configSettings.homepagetitle}}</h2>
+                </div>
+                <div class="well">
+                    <h3>Introduction</h3>
+                    <p>
+                        The information contained in the <a href="{{configSettings.mapper}}" target="_blank">Science in the Great Lakes Mapper</a>                        (SiGL) is managed by the
+                        <a href="{{configSettings.application}}" target="_blank">SiGL Data Management System</a> (SiGL DMS).
+                        Project managers can upload and edit their projects and spatial information directly using the SiGL
+                        DMS. For more information about the SiGL Mapper or DMS, please contact Jen Bruce (jlbruce@usgs.gov).
+                    </p>
+                    <p>
+                        The SiGL DMS uses the SiGL Web Services that were created for it. When in use, the application manages interactions between
+                        the user and the services. However, the services can be directly accessed using the SiGL Service
+                        API documented here, or consumed by a custom client application using HTTP protocols.
+                    </p>
+                    <p>
+                        The SiGL Web Services API performs multiple high level procedures which include; database queries, geospatial queries and
+                        service requests in order to compile and create simple objects that can be consumed by custom client
+                        applications. As documented by this page, which can also serve as an URL builder, the SiGL Service
+                        API is built following <a href="http://en.wikipedia.org/wiki/Representational_state_transfer"
+                            target="_blank">RESTful</a> principles to ensure scalability and predictable URLs.
+                    </p>
+
+                    <h3>Getting Started</h3>
+                    <p>The URL of each resource can be obtained by accessing one of the resources located to the left.</p>
+
+                    <p>Every resource is exposed as a URL and follows the outlined pattern described below:</p>
+                    <ul>
+                        <li>The description of the resource.</li>
+                        <li>The service URL.</li>
+                        <li>Optional response formats, such as xml, json, or geojson</li>
+                        <li>URL parameters (if any).
+                            <ul>
+                                <li>Parameter Name.</li>
+                                <li>Value Type, (string, number, boolean, etc.).</li>
+                                <li>A description of what the parameter represents.</li>
+                                <li>Whether the parameter is required or optional.</li>
+                                <li>And an example input parameter.</li>
+                            </ul>
+                        </li>
+                        <li>A REST Query URL test tool that builds an example url, based on the given input parameter values.</li>
+                        <li>And an example response from the REST Query</li>
+                    </ul>
+                </div>
+                <!-- end well -->
+            </div>
+            <!-- end *ngIf="thisRoute == 'home'" -->
+        </div>
+    </div>
+</div>
+
+<!-- start of the resource section chosen -->
+<div id="resourceDescription" *ngIf="isSelected">
+    <h4>{{selectedResource.name}}</h4>
+    <div class="well">{{ selectedResource.description }}</div>
+</div>
+<div class="panel" *ngIf="selectedUri">
+    <h4>Service Description</h4>
+    <div class="well">{{ selectedUri.description }}</div>
+
+    <h4>Service URL</h4>
+    <div class="well">
+        <code>{{configSettings.services}}{{ selectedUri.uri }}</code>
+    </div>
+
+    <div *ngIf="selectedUri.selectedMedia">
+        <h4>Response formats</h4>
+        <div class="well">
+            <select [(ngModel)]="selectedUri.selectedMedia" name="selectedMedia" (ngModelChange)="updateNewUri()" style="width:7em">
+                <option [ngValue]="i" *ngFor="let i of selectedUri.availableMedia">{{i}}</option>
+            </select>
+        </div>
+    </div>
+    <h4>Parameters</h4>
+    <div class="well">
+        <table class="table table-condensed" style="font-size:12px;margin-bottom:0px;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Optional</th>
+                    <th>Description</th>
+                    <th>Input Parameter</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of selectedUri.parameters">
+                    <td><strong>{{item.name}}</strong></td>
+                    <td>{{item.type}}</td>
+                    <td>{{item.optional}}</td>
+                    <td>{{item.description}}</td>
+                    <td>
+                        <i [ngClass]="item.value || item.optional ? 'fa fa-check green': 'fa fa-warning red'"></i>
+                        <input style="width:inherit" [(ngModel)]="item.value" [required]="!item.optional" (change)="updateNewUri()" novalidate>
+                    </td>
+                </tr>
+                <tr *ngIf="selectedUri.parameters.length == 0">
+                    <td colspan="2">No parameters are required.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4>REST Query URL</h4>
+    <div class="well">
+        <p><i>Updated based on parameters above</i></p>
+        <p><a href="{{configSettings.services}}{{selectedUri.newURL}}" target="_blank">{{configSettings.services}}{{selectedUri.newURL}}</a></p>
+        <p>
+            <span *ngIf="!downloadable" class="btn-toolbar">
+                <button (click)="loadResponse()" type="button" class="btn btn-primary btn-sm">
+                    <i class="fa fa-refresh" [ngClass]="{'fa-spin': waitCursor}"></i>&nbsp;&nbsp;Load response in {{selectedUri.selectedMedia}} format
+                </button>
+                <button (click)="showResponseOnMap()" type="button" class="btn btn-primary btn-sm" 
+                *ngIf="selectedUri.showMap && selectedUri.selectedMedia == '.geojson'" [disabled]="!gotResponse"> 
+                    <i class="fa fa-map"></i>&nbsp;&nbsp;Show response on map
+                </button>
+                <span *ngIf="selectedUri.showMap && selectedUri.selectedMedia != '.geojson'" style="font-size:12px; padding-left:5px;">Use Response Format '.geojson' to see results on map below.</span>
+            </span>
+        </p>
+
+        <div *ngIf="!downloadable" class="panel panel-default" style="padding:25px;background:white">
+            <div class="panel-body">
+                <json-formatter *ngIf="requestResults" [open]="false" [json]="requestResults"></json-formatter>
+            </div>
+        </div>
+    </div> <!-- end 'well' -->
+    <div class="well" [hidden]="!selectedUri.showMap">
+        <div [ngClass]="getMapClass()" #map></div>
+    </div>
+</div>
+<!-- end if selectedUri -->
+<div *ngIf="!selectedUri && !thisRoute">
+    <h3>Resource Not Found</h3>
+</div>
+<!-- end if NO selectedUri -->
