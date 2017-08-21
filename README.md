@@ -94,3 +94,5 @@ Properties (example) needed for config.json to work properly with application:
 ### A few things to note on "Site" Resource: 
 1. AvailableMedia include ".geojson". When this is available, property "showMap" can be added to the uriList properties. 
 2. The "optional" property can be added to "parameters" for those parameter values that are optional.
+3. Update the index.html `<base href="">` to point to the Folder name in which it will reside.
+4. This application can run only on an ec2 instance and not in S3, due to the nested routing needed to allow users to copy links and come back later to paste and go directly to that resource info page. Be sure to include the web.config file in the application folder.
