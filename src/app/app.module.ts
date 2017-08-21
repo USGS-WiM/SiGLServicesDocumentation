@@ -18,7 +18,6 @@ import { PageNotFoundComponent } from "./not-found/not-found.component";
 import { ConfigService } from "./config.service";
 import { SharedModule } from "./shared/shared.module";
 import { AppRoutingModule } from "./app.routing.module";
-//import { MapviewComponent } from "./mainview/map.component";
 import { MapService } from "./mainview/map.service";
 
 export function ConfigLoader(configService: ConfigService) {
@@ -27,7 +26,7 @@ export function ConfigLoader(configService: ConfigService) {
 }
 
 @NgModule({
-  declarations: [ AppComponent, MainviewComponent, PageNotFoundComponent], // MapviewComponent
+  declarations: [ AppComponent, MainviewComponent, PageNotFoundComponent],
   imports: [ BrowserModule, HttpModule, FormsModule, AppRoutingModule, SharedModule.forRoot() ],
   providers: [MapService, ConfigService,
         { provide: APP_INITIALIZER, useFactory: ConfigLoader, deps: [ConfigService], multi:true}
@@ -36,3 +35,8 @@ export function ConfigLoader(configService: ConfigService) {
 })
 
 export class AppModule { }
+/*
+The first line makes ConfigService class available to Angular2.
+The second line uses APP_INITIALIZER to execute ConfigLoader method before application startup. 
+The 'multi: true' is being used because an application can have more than one line of APP_INITIALIZER.
+*/
