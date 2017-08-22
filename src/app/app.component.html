@@ -11,10 +11,11 @@
 <!-- SIDEBAR -->
 <div class="wim-sidebar fixed">
     <div class="card-header"><a [routerLink]="['home']" routerLinkActive="active">Home</a></div>
-    <ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
+    <ngb-accordion [closeOthers]="true" #acc="ngbAccordion" (panelChange)="beforeAccChange($event)">
         <ngb-panel *ngFor="let resource of configSettings.resources" id="{{getName(resource.name)}}">
             <ng-template ngbPanelTitle>
                 <span>{{resource.name}}</span>
+                <i [ngClass]="selectedAccordion === getName(resource.name) ? 'fa fa-chevron-right pull-right': 'fa fa-chevron-down pull-right'"></i>
             </ng-template>
             <ng-template ngbPanelContent>
                 <div class="list-group-body">

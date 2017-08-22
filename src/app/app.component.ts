@@ -24,18 +24,25 @@ export class AppComponent {
 	@ViewChild('acc') accordion;
 	public title: string;
 	public configSettings: IconfigObj;
+	public selectedAccordion: string; // when they open accordion, want to toggle caret
 
 	constructor(private _configService: ConfigService, private _route: ActivatedRoute, 
 			private _router: Router, private _pathService: PathService) {
 		this.configSettings = this._configService.getConfiguration().configuration;
 	}
 	ngOnInit(){
+		this.selectedAccordion = "";
 		this.title = this.configSettings.homepagetitle + " Documentation";
 		this._pathService.getPath().subscribe((path:string) => {
 			if (path !== "home"){
-				if (this.accordion.activeIds[0] !== path)
+				if (this.accordion.activeIds[0] !== path) {
 					this.accordion.activeIds = [path];
-			} else this.accordion.activeIds = [];
+					this.selectedAccordion = path;
+				}
+			} else {
+				this.accordion.activeIds = [];
+				this.selectedAccordion = "";
+			}
 		});
 		
 	}
@@ -46,4 +53,12 @@ export class AppComponent {
 	public getLink(url: Iurilist){
 		return url.id.replace(/ /g,'');
 	}
+
+	public beforeAccChange(e){
+		// if the panel is newly being opened from another panel
+		if (e.panelId !== this.selectedAccordion && e.nextState)
+			this.selectedAccordion = e.panelId;
+		else this.selectedAccordion = "";
+		
+    }
 }

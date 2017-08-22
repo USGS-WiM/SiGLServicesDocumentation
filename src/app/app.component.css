@@ -131,18 +131,6 @@
     white-space: nowrap;
     text-decoration: none;
 }
-.card-header a {
-    text-align: right!important;
-    text-transform: uppercase!important;
-    font-size: 12pt!important;
-    box-sizing: border-box!important;
-    padding: 18px!important;
-    letter-spacing: 2px!important;
-    font-weight: 400!important;
-    color: #6E7490!important;
-    transition: .2s!important;
-
-}
 select:focus{
 	background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#0F8AFF" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>');
 }
