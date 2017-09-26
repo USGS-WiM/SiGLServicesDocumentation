@@ -48,6 +48,16 @@ Properties (example) needed for config.json to work properly with application:
                             ],
                             "availableMedia": [".xml", ".json"],
                             "selectedMedia": ".json"
+                        },
+                        {
+                            "uri": "/projects/{1}/contacts{0}",
+                            "description": "This service returns a list of contacts that a project has.",
+                            "id": "Project Contacts",
+                            "parameters": [
+                                { "name": "projectId", "type": "number", "description": "Id of the project requested", "value": "", "link": "../Project/AllProjects", "linkName": "See Projects" }
+                            ],
+                            "availableMedia": [".xml", ".json"],
+                            "selectedMedia": ".json"
                         }
                     ]
                 }
@@ -72,16 +82,16 @@ Properties (example) needed for config.json to work properly with application:
                             "description": "This service returns a list of sites that meet the passed-in values.",
                             "id": "Filtered Sites",
                             "parameters": [
-                            { "name": "durationIDs", "type": "comma separated numbers", "description": "comma separated list of project duration IDs (ex: 1,2,3)", "optional": true, "value": "" },
-                            { "name": "lakeIDs", "type": "comma separated numbers", "description": "comma separated list of lake IDs", "optional": true, "value": "" },
-                            { "name": "mediaIDs", "type": "comma separated numbers", "description": "comma separated list of media type IDs", "optional": true, "value": "" },
-                            { "name": "objIDs", "type": "comma separated numbers", "description": "comma separated list of objective type IDs", "optional": true, "value": "" },
-                            { "name": "monCoordIDs", "type": "comma separated numbers", "description": "comma separated list of monitoring coordination effort IDs", "optional": true, "value": "" },
-                            { "name": "orgID", "type": "number", "description": "organization ID that created the project that this site belongs to", "optional": true, "value": "" },
-                            { "name": "parameterIDs", "type": "comma separated numbers", "description": "comma separated list of parameter type IDs", "optional": true, "value": "" },
-                            { "name": "resCompIDs", "type": "comma separated numbers", "description": "comma separated list of resource type IDs", "optional": true, "value": "" },
-                            { "name": "states", "type": "comma separated strings", "description": "comma separated list of state names (ex: 'Michigan,Wisconsin')", "optional": true, "value": "" },
-                            { "name": "statusIDs", "type": "comma separated numbers", "description": "comma separated list of project status IDs", "optional": true, "value": "" }
+                                { "name": "durationIDs", "type": "comma separated numbers", "description": "comma separated list of project duration IDs (ex: 1,2,3)", "optional": true, "value": "", "link": "../home", "linkName": "See Projects Durations },
+                                { "name": "lakeIDs", "type": "comma separated numbers", "description": "comma separated list of lake IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Lakes },
+                                { "name": "mediaIDs", "type": "comma separated numbers", "description": "comma separated list of media type IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Media Types },
+                                { "name": "objIDs", "type": "comma separated numbers", "description": "comma separated list of objective type IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Objective Types },
+                                { "name": "monCoordIDs", "type": "comma separated numbers", "description": "comma separated list of monitoring coordination effort IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Monitoring Coordination Efforts },
+                                { "name": "orgID", "type": "number", "description": "organization ID that created the project that this site belongs to", "optional": true, "value": "", "link": "../home", "linkName": "See Organizations },
+                                { "name": "parameterIDs", "type": "comma separated numbers", "description": "comma separated list of parameter type IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Parameter Types },
+                                { "name": "resCompIDs", "type": "comma separated numbers", "description": "comma separated list of resource type IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Resource Types },
+                                { "name": "states", "type": "comma separated strings", "description": "comma separated list of state names (ex: 'Michigan,Wisconsin')", "optional": true, "value": "", "link": "../home", "linkName": "See States },
+                                { "name": "statusIDs", "type": "comma separated numbers", "description": "comma separated list of project status IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Project Statuses }
                             ],
                             "availableMedia": [".xml", ".json", ".geojson"],
                             "selectedMedia": ".json",
@@ -94,5 +104,6 @@ Properties (example) needed for config.json to work properly with application:
 ### A few things to note on "Site" Resource: 
 1. AvailableMedia include ".geojson". When this is available, property "showMap" can be added to the uriList properties. 
 2. The "optional" property can be added to "parameters" for those parameter values that are optional.
-3. Update the index.html `<base href="">` to point to the Folder name in which it will reside.
-4. This application can run only on an ec2 instance and not in S3, due to the nested routing needed to allow users to copy links and come back later to paste and go directly to that resource info page. Be sure to include the `web.config` file (located at the root) in the application folder at the same level as the index.html
+3. The Parameters can include "link" and "linkName" properties that can contain a link to the related information that will open in a new tab.
+4. Update the index.html `<base href="">` to point to the Folder name in which it will reside.
+5. This application can run only on an ec2 instance and not in S3, due to the nested routing needed to allow users to copy links and come back later to paste and go directly to that resource info page. Be sure to include the `web.config` file (located at the root) in the application folder at the same level as the index.html

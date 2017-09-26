@@ -2,7 +2,7 @@
     "copyright": "2017 WiM - USGS",
     "author": "Author Name - USGS Wisconsin Internet Mapping", 
     "purpose": "External (to webpack bundling) config file for the web services documentation.",
-    "notes": "for uriList[i].parameters[i] = Add 'optional: true' if parameter is optional. Add 'showMap: true' if .geojson is an availableMedia option",
+    "notes": "for uriList[i].parameters[i] = Add 'optional: true' if parameter is optional. Add 'showMap: true' if .geojson is an availableMedia option. Add 'link' and 'linkName' if additional information may be wanted.",
     "configuration": {
         "services": "https://sigldev.wim.usgs.gov/SiGLServices",
         "mapper":"http://sigldev.wim.usgs.gov/sigl/",
@@ -28,7 +28,7 @@
                             "description": "This service returns a contact by it's ID.",
                             "id": "A Contact",
                             "parameters": [
-                            { "name": "contactId", "type": "number", "description": "Id of the contact requested", "value": "" }
+                                { "name": "contactId", "type": "number", "description": "Id of the contact requested", "value": "" }
                             ],
                             "availableMedia": [".xml", ".json"],
                             "selectedMedia": ".json"
@@ -38,21 +38,11 @@
                             "description": "This service returns a list of contacts that a project has.",
                             "id": "Project Contacts",
                             "parameters": [
-                            { "name": "projectId", "type": "number", "description": "Id of the project requested", "value": "" }
+                                { "name": "projectId", "type": "number", "description": "Id of the project requested", "value": "", "link": "../Project/AllProjects", "linkName": "See Projects" }
                             ],
                             "availableMedia": [".xml", ".json"],
                             "selectedMedia": ".json"
-                        },
-                        {
-                            "uri": "/OrganizationSystems/{1}/contacts{0}",
-                            "description": "This service returns a list of contacts at an organization.",
-                            "id": "Organization Contacts",
-                            "parameters": [
-                            { "name": "organizationId", "type": "number", "description": "Id of the organization requested", "value": "" }
-                            ],
-                            "availableMedia": [".xml", ".json"],
-                            "selectedMedia": ".json"
-                        }
+                        }                        
                     ]
                 }
             },            
@@ -75,7 +65,7 @@
                             "description": "This service returns a project by it's ID.",
                             "id": "A Project",
                             "parameters": [
-                            { "name": "projectId", "type": "number", "description": "Id of project requested", "value": "" }
+                                { "name": "projectId", "type": "number", "description": "Id of project requested", "value": "" }
                             ],
                             "availableMedia": [".xml", ".json"],
                             "selectedMedia": ".json"
@@ -85,7 +75,7 @@
                             "description": "This service returns a project for a site.",
                             "id": "Site Project",
                             "parameters": [
-                            { "name": "siteId", "type": "number", "description": "Id of the site", "value": "" }
+                                { "name": "siteId", "type": "number", "description": "Id of the site", "value": "", "link": "../Site/AllSites", "linkName": "See Sites" }
                             ],
                             "availableMedia": [".xml", ".json"],
                             "selectedMedia": ".json"
@@ -95,8 +85,8 @@
                             "description": "This service returns a custom project object (containing the project as well as project objectives, keywords, data hosts, organizations, contacts, and publications) by the science base id or by a project id.",
                             "id": "Full Project",
                             "parameters": [
-                            { "name": "scienceBaseId", "type": "string", "description": "science base id if this project is from science base", "optional": true, "value": "" },
-                            { "name": "projectId", "type": "number", "description": "Id of the project", "optional": true, "value": "" }
+                                { "name": "scienceBaseId", "type": "string", "description": "science base id if this project is from science base", "optional": true, "value": "" },
+                                { "name": "projectId", "type": "number", "description": "Id of the project", "optional": true, "value": "" }
                             ],
                             "availableMedia": [".xml", ".json"],
                             "selectedMedia": ".json"
@@ -124,7 +114,7 @@
                             "description": "This service returns a site by it's ID.",
                             "id": "A Site",
                             "parameters": [
-                            { "name": "siteId", "type": "number", "description": "Id of site requested", "value": "" }
+                                { "name": "siteId", "type": "number", "description": "Id of site requested", "value": "" }
                             ],
                             "availableMedia": [".xml", ".json", ".geojson"],
                             "selectedMedia": ".json",
@@ -135,7 +125,7 @@
                             "description": "This service returns a list of sites for a project.",
                             "id": "Project Sites",
                             "parameters": [
-                            { "name": "projectId", "type": "number", "description": "Id of the project", "value": "" }
+                                { "name": "projectId", "type": "number", "description": "Id of the project", "value": "", "link": "../Project/AllProjects", "linkName": "See Projects" }
                             ],
                             "availableMedia": [".xml", ".json", ".geojson"],
                             "selectedMedia": ".json",
@@ -146,16 +136,16 @@
                             "description": "This service returns a list of sites that meet the passed-in values.",
                             "id": "Filtered Sites",
                             "parameters": [
-                            { "name": "durationIDs", "type": "comma separated numbers", "description": "comma separated list of project duration IDs (ex: 1,2,3)", "optional": true, "value": "" },
-                            { "name": "lakeIDs", "type": "comma separated numbers", "description": "comma separated list of lake IDs", "optional": true, "value": "" },
-                            { "name": "mediaIDs", "type": "comma separated numbers", "description": "comma separated list of media type IDs", "optional": true, "value": "" },
-                            { "name": "objIDs", "type": "comma separated numbers", "description": "comma separated list of objective type IDs", "optional": true, "value": "" },
-                            { "name": "monCoordIDs", "type": "comma separated numbers", "description": "comma separated list of monitoring coordination effort IDs", "optional": true, "value": "" },
-                            { "name": "orgID", "type": "number", "description": "organization ID that created the project that this site belongs to", "optional": true, "value": "" },
-                            { "name": "parameterIDs", "type": "comma separated numbers", "description": "comma separated list of parameter type IDs", "optional": true, "value": "" },
-                            { "name": "resCompIDs", "type": "comma separated numbers", "description": "comma separated list of resource type IDs", "optional": true, "value": "" },
-                            { "name": "states", "type": "comma separated strings", "description": "comma separated list of state names (ex: 'Michigan,Wisconsin')", "optional": true, "value": "" },
-                            { "name": "statusIDs", "type": "comma separated numbers", "description": "comma separated list of project status IDs", "optional": true, "value": "" }
+                                { "name": "durationIDs", "type": "comma separated numbers", "description": "comma separated list of project duration IDs (ex: 1,2,3)", "optional": true, "value": "", "link": "../home", "linkName": "See Project Durations" },
+                                { "name": "lakeIDs", "type": "comma separated numbers", "description": "comma separated list of lake IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Lakes" },
+                                { "name": "mediaIDs", "type": "comma separated numbers", "description": "comma separated list of media type IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Media Types" },
+                                { "name": "objIDs", "type": "comma separated numbers", "description": "comma separated list of objective type IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Objective Types" },
+                                { "name": "monCoordIDs", "type": "comma separated numbers", "description": "comma separated list of monitoring coordination effort IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Monitoring Coordination Efforts" },
+                                { "name": "orgID", "type": "number", "description": "organization ID that created the project that this site belongs to", "optional": true, "value": "", "link": "../home", "linkName": "See Organizations" },
+                                { "name": "parameterIDs", "type": "comma separated numbers", "description": "comma separated list of parameter type IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Parameter Types" },
+                                { "name": "resCompIDs", "type": "comma separated numbers", "description": "comma separated list of resource type IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Resource Types" },
+                                { "name": "states", "type": "comma separated strings", "description": "comma separated list of state names (ex: 'Michigan,Wisconsin')", "optional": true, "value": "", "link": "../home", "linkName": "See States" },
+                                { "name": "statusIDs", "type": "comma separated numbers", "description": "comma separated list of project status IDs", "optional": true, "value": "", "link": "../home", "linkName": "See Project Statuses" }
                             ],
                             "availableMedia": [".xml", ".json", ".geojson"],
                             "selectedMedia": ".json",
@@ -165,6 +155,5 @@
                 }
             }
         ]
-
     }
 }

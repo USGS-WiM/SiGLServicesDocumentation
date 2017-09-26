@@ -86,6 +86,7 @@
                     <th>Optional</th>
                     <th>Description</th>
                     <th>Input Parameter</th>
+                    <th>Additional Info</th>
                 </tr>
             </thead>
             <tbody>
@@ -98,6 +99,7 @@
                         <i [ngClass]="item.value || item.optional ? 'fa fa-check green': 'fa fa-warning red'"></i>
                         <input style="width:inherit" [(ngModel)]="item.value" [required]="!item.optional" (change)="updateNewUri()" novalidate>
                     </td>
+                    <td><span *ngIf="item.link"><a [attr.href]="item.link" target="_blank">{{item.linkName}}</a></span></td>
                 </tr>
                 <tr *ngIf="selectedUri.parameters.length == 0">
                     <td colspan="2">No parameters are required.</td>

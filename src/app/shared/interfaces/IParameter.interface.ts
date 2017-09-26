@@ -8,6 +8,8 @@
 export interface Iparameter {
     name: string;
     type: string;
+    link?: string;
+    linkName?: string;
     description: string;
     value: string;
     optional?: boolean;
