@@ -1,3 +1,5 @@
+import * as L from 'leaflet';
+
 import { Injectable } from '@angular/core';
 import { Map } from 'leaflet'
 
@@ -8,7 +10,7 @@ export class MapService {
     public TopoBase: any;
     public SatBase: any;
     constructor() {
-        //this.baseMaps = { 
+        //this.baseMaps = {
         this.baseMaps = {
             Topo: L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", {
                 attribution: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community"
