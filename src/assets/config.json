@@ -1,6 +1,6 @@
 {
-    "copyright": "2017 WiM - USGS",
-    "author": "Author Name - USGS Wisconsin Internet Mapping", 
+    "copyright": "2017 WIM - USGS",
+    "author": "Author Name - USGS Web Informatics and Mapping", 
     "purpose": "External (to webpack bundling) config file for the web services documentation.",
     "notes": "for uriList[i].parameters[i] = Add 'optional: true' if parameter is optional. Add 'showMap: true' if .geojson is an availableMedia option. Add 'link' and 'linkName' if additional information may be wanted.",
     "configuration": {
