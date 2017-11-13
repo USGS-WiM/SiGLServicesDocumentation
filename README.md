@@ -1,6 +1,6 @@
 # ServicesDocumentation
 
-REST Services documentation template for use with any WiM services documentation.
+REST Services documentation template for use with any WIM services documentation.
 
 ## Development server
 
@@ -15,8 +15,8 @@ The config.json located in the assets folder can be swapped out to change the si
 Properties (example) needed for config.json to work properly with application:
 ```
 {
-    "copyright": "2017 WiM - USGS",
-    "author": "Tonia Roddick - USGS Wisconsin Internet Mapping", 
+    "copyright": "2017 WIM - USGS",
+    "author": "Tonia Roddick - USGS Web Informatics and Mapping", 
     "purpose": "External (to webpack bundling) config file for the web services documentation.",
     "notes": "for uriList[i].parameters[i] = Add 'optional: true' if parameter is optional. Add 'showMap: true' if .geojson is an availableMedia option",
     "configuration": {
