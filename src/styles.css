@@ -61,7 +61,6 @@ ul{
   height: 50px !important;
   font-size: 16px !important;
   font-weight: 500 !important;
-  letter-spacing: -0.25px !important;
   line-height: 16px !important;
 }
 .nav-branding img{
@@ -244,6 +243,11 @@ margin-bottom: 10px !important;
     }
     .mobile-menu-btn{
       display: flex !important;
+    }
+    .nav-title{
+      font-size: 12px !important;
+      letter-spacing: -0.25px !important;
+      line-height: 12px !important;
     }
 }
 
