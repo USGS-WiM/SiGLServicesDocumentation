@@ -1,15 +1,24 @@
 <!-- NAV -->
-<div class="wim-nav">    
+<div class="wim-nav">
     <div class="usgsbanner">
         <a class="nav-branding" href="http://www.usgs.gov"><img src="https://wim.usgs.gov/website-assets/usgs-logo.png"></a>
         <span class="nav-title">{{title}}</span>
     </div>
-   
+
 </div>
 <br clear="all"/>
 
 <!-- SIDEBAR -->
-<div class="wim-sidebar fixed">
+<button class="mobile-menu-btn" (click)="showMobileMenu()">
+  <div>
+    <span id="mobileMenuText">
+      Menu
+    </span>
+    <i class="fa fa-bars" id="mobileMenuIcon" aria-hidden="true"></i>
+  </div>
+</button>
+
+<div class="wim-sidebar fixed" id="appMenu">
     <div class="card-header"><a [routerLink]="['home']" routerLinkActive="active">Home</a></div>
     <ngb-accordion [closeOthers]="true" #acc="ngbAccordion" (panelChange)="beforeAccChange($event)">
         <ngb-panel *ngFor="let resource of configSettings.resources" id="{{getName(resource.name)}}">
@@ -23,7 +32,7 @@
                         <div *ngFor="let url of resource.methods.uriList">
                             <a [routerLink]="[getName(resource.name), getLink(url)]" routerLinkActive="active-link" title="{{url.uri}}">{{url.id}}</a>
                             <br />
-                        </div> 
+                        </div>
                 </div>
             </ng-template>
         </ngb-panel>
@@ -33,6 +42,6 @@
 </div>
 
 <!-- MAINVIEW -->
-<div class="container" style="margin-top:65px">   
+<div class="container" style="margin-top:65px">
    <router-outlet></router-outlet>
 </div>

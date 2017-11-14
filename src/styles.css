@@ -206,20 +206,103 @@ margin-bottom: 10px !important;
     .wim-sidebar {
       width: 100% !important;
       height: auto !important;
-      position: inherit !important;
-      max-width: 300px !important;
-      margin: 45px auto 0 auto !important;
+      max-width: 260px !important;
+      margin: 0;
+      position: fixed;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      bottom: 70px;
+      right: 15px !important;
+      left: auto !important;
+      top: auto !important;
+      display: none;
+    }
+    .wim-sidebar .identification{
+      padding-bottom: 10px !important;
     }
     .usgsbanner{
       justify-content: center !important;
     }
 
     .container{
-      padding: 35px !important;
+      padding: 15px !important;
+    }
+    .page-header{
+      padding: 0 !important;
+      padding-left: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .well{
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    .page-header+.well {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    .mobile-menu-btn{
+      display: flex !important;
     }
 }
 
 
 .parameters-wrapper{
   overflow-x: scroll !important;
+}
+
+
+
+ul{
+  font-size: 10pt !important;
+  font-weight: 300 !important;
+}
+
+ul li{
+  box-sizing: border-box;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+
+/*Mobile Menu Button*/
+.mobile-menu-btn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40px;
+  background-color: red;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 500;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  width: 80px;
+  text-align: center;
+  box-sizing: border-box;
+  transition: 0.2s;
+  font-size: 12px;
+  background-color: #10152C;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  display: none;
+  padding-bottom: 2px;
+}
+
+.mobile-menu-btn:hover,
+.mobile-menu-btn:focus{
+  background-color: black;
+  transition: 0.2s;
+  cursor: pointer;
+  color: rgba(255,255,255,0.65);
+}
+
+.mobile-menu-btn i{
+  font-size: 18px;
+  position: relative;
+  top: 2px;
+  margin-left: 5px;
 }
