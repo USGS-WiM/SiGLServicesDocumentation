@@ -2,7 +2,7 @@
 body, html {
     font-family: 'Lato',Helvetica,sans-serif;
 }
-  
+
 sidebar{
   overflow: visible !important;
 }
@@ -12,18 +12,301 @@ sidebar{
 h4 {
     font-weight: 700;
     letter-spacing: 2px;
-}  
+}
 .card-header a {
     display: block;
-    text-align: right;
-    text-transform: uppercase;
     font-size: 10pt;
     box-sizing: border-box;
-    letter-spacing: 2px;
+    border-radius: none !important;
     font-weight: 400;
     transition: .2s;
     color: #6E7490!important;
 }
 .card-header i {
     padding-left: 5px;
+    position: relative;
+    top: 2px;
+}
+
+
+/*
+=========
+=========
+=========
+Mitch Styles 10/10
+=========
+=========
+=========
+*/
+
+
+p{
+  font-size: 10.5pt !important;
+    font-weight: 300 !important;
+    letter-spacing: -0.3px !important;
+    line-height: 22px !important;
+}
+ul{
+  list-style-type: disc !important;
+  margin: auto !important;
+  padding: 0 20px !important;
+}
+
+/*Nav Bar*/
+.wim-nav{
+  height: 50px !important;
+  text-align: center !important;
+}
+.nav-title{
+  height: 50px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 16px !important;
+}
+.nav-branding img{
+  height: 28px !important;
+}
+
+/*Side Bar*/
+.wim-sidebar{
+  margin-top: 50px !important;
+  padding: 10px 10px 0 10px !important;
+  width: 220px !important;
+  background-color: #F9FAFB !important;
+}
+
+
+.card-header{
+  padding: 0 !important;
+  border-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-bottom: none !important;
+  background-color: #F9FAFB !important;
+}
+
+.card-header a{
+  padding: 11px !important;
+  transition: 0.2s;
+  box-sizing: border-box;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 800 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.5px !important;
+
+}
+
+.card-header a:hover{
+  text-decoration: none !important;
+  background-color: #fff !important;
+  transition: 0.2s;
+  color: #0F8AFF !important;
+}
+
+.card{
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.identification{
+  font-size: 10px !important;
+  font-weight: 800 !important;
+}
+
+.card-body{
+  background-color: #F9FAFB !important;
+  padding: 0 !important;
+}
+
+.list-group-body{
+  box-shadow: none !important;
+  padding: 10px 10px 10px 10px !important;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.list-group-body p{
+  color: #6E758F !important;
+  margin: 0 0 5px 0 !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+}
+.list-group-body div{
+  line-height: 14px !important;
+}
+
+.list-group-body a{
+  font-size: 11px !important;
+font-weight: 500 !important;
+letter-spacing: 0.25px !important;
+height: auto !important;
+line-height: 12px !important;
+}
+.list-group-body a:hover{
+  transition: 0.2s;
+  color: #0F8AFF !important;
+}
+
+
+
+
+
+/*Main Content*/
+.container{
+  display: block;
+  width: 100%;
+  margin: 0 !important;
+  max-width: none !important;
+  padding: 55px 60px 0 280px;
+  box-sizing: border-box;
+}
+
+code,
+p a{
+  white-space:pre-wrap !important;
+  break-inside: auto !important;
+  word-break: break-all !important;
+}
+
+
+.well{
+  line-height: 1em !important;
+}
+
+.fa-check,
+.fa-warning{
+  float: right !important;
+    position: relative !important;
+    top: 23px !important;
+    left: -5px !important;
+}
+
+#resourceDescription .well{
+  font-size: 12px !important;
+  line-height: 16px !important;
+  letter-spacing: 0.25px !important;
+}
+#resourceDescription h4{
+  font-weight: bolder !important;
+  font-size: 18px !important;
+  font-style: normal !important;
+text-transform: none !important;
+letter-spacing: 0.5px !important;
+margin-bottom: 10px !important;
+}
+
+
+
+
+@media only screen and (max-width: 800px) {
+    .wim-sidebar {
+      width: 100% !important;
+      height: auto !important;
+      max-width: 260px !important;
+      margin: 0;
+      position: fixed;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      bottom: 70px;
+      right: 15px !important;
+      left: auto !important;
+      top: auto !important;
+      display: none;
+    }
+    .wim-sidebar .identification{
+      padding-bottom: 10px !important;
+    }
+    .usgsbanner{
+      justify-content: center !important;
+    }
+
+    .container{
+      padding: 15px !important;
+    }
+    .page-header{
+      padding: 0 !important;
+      padding-left: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .well{
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    .page-header+.well {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    .mobile-menu-btn{
+      display: flex !important;
+    }
+    .nav-title{
+      font-size: 12px !important;
+      letter-spacing: -0.25px !important;
+      line-height: 12px !important;
+    }
+}
+
+
+.parameters-wrapper{
+  overflow-x: scroll !important;
+}
+
+
+
+ul{
+  font-size: 10pt !important;
+  font-weight: 300 !important;
+}
+
+ul li{
+  box-sizing: border-box;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+
+/*Mobile Menu Button*/
+.mobile-menu-btn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40px;
+  background-color: red;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 500;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  width: 80px;
+  text-align: center;
+  box-sizing: border-box;
+  transition: 0.2s;
+  font-size: 12px;
+  background-color: #10152C;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  display: none;
+  padding-bottom: 2px;
+}
+
+.mobile-menu-btn:hover,
+.mobile-menu-btn:focus{
+  background-color: black;
+  transition: 0.2s;
+  cursor: pointer;
+  color: rgba(255,255,255,0.65);
+}
+
+.mobile-menu-btn i{
+  font-size: 18px;
+  position: relative;
+  top: 2px;
+  margin-left: 5px;
 }

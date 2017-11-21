@@ -1,5 +1,5 @@
  .page-header {
-    padding: 25px!important;
+    padding: 25px;
     margin-top: 10px;
     padding-bottom: 9px;
     margin: 40px 0 20px;
@@ -19,10 +19,10 @@
     margin-bottom: 20px;
 }
 .page-header+.well {
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 0;
+    margin-right: 0;
 }
-.scrollable {    
+.scrollable {
     padding: 0 0 35px;
 
 }
@@ -79,7 +79,7 @@ h4:nth-child(1) {
     font-size: 12pt;
     margin-bottom: 3px;
 }
-#resourceDescription .well {    
+#resourceDescription .well {
     border: none;
     padding: 0;
     background-color: transparent;

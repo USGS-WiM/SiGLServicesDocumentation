@@ -2,9 +2,10 @@
 // ----- mainview.component -----------------------------------------------------
 // ------------------------------------------------------------------------------
 // copyright:   2017 WiM - USGS
-// authors:  Tonia Roddick USGS Wisconsin Internet Mapping             
+// authors:  Tonia Roddick USGS Wisconsin Internet Mapping
 // purpose: main component that shows home page and resource information
 
+import * as L from 'leaflet';
 import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { ConfigService } from "../config.service";
@@ -23,7 +24,7 @@ import { PathService } from "../shared/services/path.service";
     styleUrls: ['./mainview.component.css']
 })
 export class MainviewComponent implements OnInit {
-    @ViewChild('map') mapContainer;     
+    @ViewChild('map') mapContainer;
     public thisRoute: string;
     public configSettings: IconfigObj; // external assets/config.json
     public selectedResource: Iresource; // the selected resource object
@@ -36,16 +37,16 @@ export class MainviewComponent implements OnInit {
     public gotResponse: boolean; // set to true when response has arrived in geojson to allow 'Show response in map' button to be enabled
     public map: L.Map; // leaflet map
     public geoJsonResponseLayer: L.FeatureGroup;
-    public showMap: boolean; // set to true when 'Show response on map' is clicked to change styling of map container 
+    public showMap: boolean; // set to true when 'Show response on map' is clicked to change styling of map container
 
     constructor(private _configService: ConfigService, private _route: ActivatedRoute,
-        private _router: Router, private _httpService: HttpServices, private _mapService: MapService, 
+        private _router: Router, private _httpService: HttpServices, private _mapService: MapService,
         private _pathService: PathService, private _cdRef:ChangeDetectorRef) {
         this.configSettings = this._configService.getConfiguration().configuration;
     }
     ngAfterViewInit(){
         if (this.thisRoute !== 'home'){
-            this.map = L.map(this.mapContainer.nativeElement, { 
+            this.map = L.map(this.mapContainer.nativeElement, {
                 attributionControl: false,
                 center: L.latLng(45, -90),
                 zoom: 4,
@@ -53,12 +54,12 @@ export class MainviewComponent implements OnInit {
                 //   maxZoom: 19,
                 layers: [this._mapService.baseMaps.Topo]
             });
-        }    
+        }
     }
     ngOnInit() {
         this.requestResults = null;
 
-        this._route.url.subscribe((urlSeg) => {            
+        this._route.url.subscribe((urlSeg) => {
             this.gotResponse = false;
             if (this.map) {
                 if (this.map.hasLayer(this.geoJsonResponseLayer)) {
@@ -73,14 +74,14 @@ export class MainviewComponent implements OnInit {
             if (urlSeg.length > 1) {
                 this.resourceName = urlSeg[0].path;    //ex: '/Contacts'
                 this._pathService.setpath(this.resourceName);
-                //get the selected resource       
+                //get the selected resource
                 this.selectedResource = this.configSettings.resources.filter(res => { return res.name.replace(/ /g, '') == this.resourceName })[0];
                 if (this.selectedResource) {
                     this.isSelected = true;
                     this.selectedResource.methods.uriList.forEach((uri) => {
                         if (uri.id.replace(/ /g, '') == urlSeg[1].path) {
                             this.thisRoute = urlSeg[1].path;
-                            this.selectedUri = uri;                            
+                            this.selectedUri = uri;
                             this.updateNewUri(); // updates the REST Query URL
                         }
                     });
@@ -148,7 +149,7 @@ export class MainviewComponent implements OnInit {
             popupAnchor: [1, -34],
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
             shadowSize:  [41, 41]
-        });      
+        });
             //set map
             this.showMap = true;
 
@@ -164,21 +165,21 @@ export class MainviewComponent implements OnInit {
                 }
             }).addTo(this.map);
         //    this.map.invalidateSize();
-            
-            this.map.fitBounds(this.geoJsonResponseLayer.getBounds(), {padding: [50,50]});                
-        
+
+            this.map.fitBounds(this.geoJsonResponseLayer.getBounds(), {padding: [50,50]});
+
     }
     // update the #map height when moving between resources (those that need map and those that don't)
     public getMapClass(){
         if (this.selectedUri.showMap && this.map){
             this.map.invalidateSize();
             return 'mapView';
-        } else return '';        
+        } else return '';
     }
 
     // need to detect changes because getMapClass() changes the dom. without this causes changedetection error
     ngAfterViewChecked()
-	{		
+	{
 		this._cdRef.detectChanges();
 	}
 }
