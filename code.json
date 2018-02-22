@@ -1,0 +1,48 @@
+[
+  {
+    "name": "SiGLServicesDocumentation",
+    "organization": "U.S. Geological Survey",
+    "description": "angular 4 cli services documentation page using exchangeable config.json file",
+    "version": "v1.0.0",
+    "status": "Production"
+
+    "permissions": {
+      "usageType": "openSource",
+      "licenses": [
+        {
+          "name": "Public Domain",
+          "URL": "https://github.com/usgs/best-practices/blob/master/LICENSE.md"
+        }
+      ]
+    },
+
+    "homepageURL": "http://stn.wim.usgs.gov/SiGLServices/Documentation/home",
+    "downloadURL": "https://github.com/USGS-WiM/SiGLServicesDocumentation/archive/master.zip",
+    "disclaimerURL": "https://github.com/USGS-WiM/SiGLServicesDocumentation/blob/master/DISCLAIMER.md",
+    "repositoryUrl": "https://github.com/USGS-WiM/SiGLServicesDocumentation",
+    "vcs": "git",
+
+    "laborHours": null,
+
+    "tags": [
+      "sigl",
+      "services",
+      "documentation",
+      "angular"
+    ],
+
+    "languages": [
+      "typescript",
+      "javascript"
+    ],
+
+    "contact": {
+      "name": "Tonia Roddick",
+      "email": "troddick@usgs.gov"
+    },
+
+    "date": {
+      "metadataLastUpdated": "2018-02-20"
+    }
+  }
+]
