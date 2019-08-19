@@ -16,7 +16,7 @@
       ]
     },
 
-    "homepageURL": "http://stn.wim.usgs.gov/SiGLServices/Documentation/home",
+    "homepageURL": "https://sigl.wim.usgs.gov/siglservices",
     "downloadURL": "https://github.com/USGS-WiM/SiGLServicesDocumentation/archive/master.zip",
     "disclaimerURL": "https://github.com/USGS-WiM/SiGLServicesDocumentation/blob/master/DISCLAIMER.md",
     "repositoryUrl": "https://github.com/USGS-WiM/SiGLServicesDocumentation",
